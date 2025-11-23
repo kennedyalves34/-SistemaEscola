@@ -8,16 +8,18 @@ public class Aluno {
     private String cpf;
     private int idade;
     private String genero;
+    private String responsavel;
     private double[] notas;
     private String matricula;
     private List<Disciplina> disciplinas;
     private Turma turma;
 
-    public Aluno(String nome, String cpf, int idade, String genero, String matricula) {
+    public Aluno(String nome, String cpf, int idade, String genero, String reposanvel, String matricula) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
         this.genero = genero;
+        this.responsavel = responsavel;
         this.matricula = matricula;
         this.notas = new double[4];
         this.disciplinas = new ArrayList<>();
@@ -25,8 +27,8 @@ public class Aluno {
 
     public void verSuasNotas() {
         System.out.println("Notas do aluno " + nome + ":");
-        for (int i = 0; i < notas; i++) {
-            System.out.println("Nota " + (i + 1) +);
+        for (int i = 0; i < notas.length; i++) {
+            System.out.println("Nota " + (i + 1) + ": " + notas[i]);
         }
         System.out.println("Média: " + calcularMedia());
     }
@@ -55,9 +57,9 @@ public class Aluno {
     public double calcularMedia() {
         double soma = 0;
         for (double n : notas) {
-            soma + n;
+            soma += n;
         }
-        return soma / notas;
+        return soma / notas.length;
     }
 
     public void adicionarDisciplina(Disciplina disciplina) {

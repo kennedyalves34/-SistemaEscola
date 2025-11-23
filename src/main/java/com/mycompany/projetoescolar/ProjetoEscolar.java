@@ -17,6 +17,7 @@ public class ProjetoEscolar {
                 "12345678",
                 22,
                 "Masculino",
+                "Dilma Rouseff",
                 "1234"
         );
 
@@ -32,9 +33,9 @@ public class ProjetoEscolar {
         );
 
         Colaborador colaborador1 = new Colaborador(
-                "Lula Bolsonaro",
-                "22132213",
-                60,
+                "Pedro Santos",
+                "444.444.444-44",
+                30,
                 "Masculino",
                 "Limpeza",
                 1500.0
@@ -42,7 +43,7 @@ public class ProjetoEscolar {
 
         escola.contratarProfessor(professor1);
         escola.matricularAluno(aluno1);
-     
+      //escola.matricularAluno(aluno2);
         escola.adicionarTurma(turma1);
         escola.contratarColaborador(colaborador1);
         escola.definirEscalaDoColaborador(colaborador1, "Segunda a sexta, 08h às 17h");
@@ -50,14 +51,17 @@ public class ProjetoEscolar {
         turma1.definirLimiteDeAlunos(40);
         turma1.inserirProfessorNaTurma(professor1);
         turma1.inserirAlunoNaTurma(aluno1);
+       //urma1.inserirAlunoNaTurma(aluno2);
 
         professor1.adicionarDisciplina(java);
         professor1.adicionarTurma(turma1);
         professor1.adicionarAluno(aluno1);
-     
+       //rofessor1.adicionarAluno(aluno2);
+
         java.adicionarProfessor(professor1);
         java.adicionarTurma(turma1);
         java.adicionarAluno(aluno1);
+      //java.adicionarAluno(aluno2);
 
         double[] notasAluno1 = {8.0, 7.5, 9.0, 8.5};
         professor1.inserirNotas(aluno1, notasAluno1);
