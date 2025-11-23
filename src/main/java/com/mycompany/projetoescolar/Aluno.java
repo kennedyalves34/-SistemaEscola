@@ -14,7 +14,7 @@ public class Aluno {
     private List<Disciplina> disciplinas;
     private Turma turma;
 
-    public Aluno(String nome, String cpf, int idade, String genero, String reposanvel, String matricula) {
+    public Aluno(String nome, String cpf, int idade, String genero, String responsavel, String matricula) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
