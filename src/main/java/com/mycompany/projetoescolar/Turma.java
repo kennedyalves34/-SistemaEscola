@@ -1,67 +1,82 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.projetoescolar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-/**
- *
- * @author KENNEDYALVESSOARES
- */
 public class Turma {
-    String identificador; 
-    List<Aluno> alunos = new ArrayList<>();
-    String horarios;
-    String local;
-    List<Professor> professores = new ArrayList<>();  
-    public Turma (String identificador){
-    this.identificador = identificador;
-    this.alunos = null;
-    this.horarios = "";
-    this.local = "";
-    this.professores = null;
-    
-    
+    private String identificador;
+    private List<Aluno> alunos;
+    private String horario;
+    private String local;
+    private List<Professor> professores;
+    private int limiteDeAlunos;
+
+    public Turma(String identificador, String horario, String local) {
+        this.identificador = identificador;
+        this.horario = horario;
+        this.local = local;
+        this.alunos = new ArrayList<>();
+        this.professores = new ArrayList<>();
+        this.limiteDeAlunos = 0;
     }
-   
-    
-    
-    // Metodos
-    public boolean DefinirLimiteDeAlunos(int quantidade){
-        if (quantidade > 30){
-            return false;
+
+    public void definirLimiteDeAlunos(int limite) {
+        this.limiteDeAlunos = limite;
+        System.out.println("Limite de alunos da turma " + identificador + ": " + limite);
+    }
+
+    public void inserirProfessorNaTurma(Professor professor) {
+        professores.add(professor);
+        System.out.println("Professor " + professor.getNome() + " inserido na turma " + identificador + ".");
+    }
+
+    public void inserirAlunoNaTurma(Aluno aluno) {
+        if (limiteDeAlunos == 0 || alunos.size() < limiteDeAlunos) {
+            alunos.add(aluno);
+            aluno.setTurma(this);
+            System.out.println("Aluno " + aluno.getNome() + " inserido na turma " + identificador + ".");
+        } else {
+            System.out.println("Não é possível inserir aluno. Limite da turma atingido.");
         }
-        return true;
     }
-    public void InserirProfessoresNaTurma(String professores, String turma) {
-        System.out.println("O professor " + professores + ", foi inserido na " + turma);
-        
-        
-        
-        
-        
+
+    public void removerProfessorNaTurma(Professor professor) {
+        professores.remove(professor);
+        System.out.println("Professor " + professor.getNome() + " removido da turma " + identificador + ".");
     }
-    void InserirAlunosNaTurma(){
-        
+
+    public void removerAlunoNaTurma(Aluno aluno) {
+        alunos.remove(aluno);
+        if (aluno.getTurma() == this) {
+            aluno.setTurma(null);
+        }
+        System.out.println("Aluno " + aluno.getNome() + " removido da turma " + identificador + ".");
     }
-    
-    void RemoverProfessoresNaTurma() {
-        
-        
+
+    public void exibirAlunos() {
+        System.out.println("Alunos da turma " + identificador + ":");
+        for (Aluno a : alunos) {
+            System.out.println("- " + a.getNome());
+        }
     }
-    
-    void RemoverAlunosNaTurma() {
-        
-        
+
+    public String getIdentificador() {
+        return identificador;
     }
-    
-    
-    
-    
-    
-    
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public List<Professor> getProfessores() {
+        return professores;
+    }
 }

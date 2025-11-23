@@ -1,40 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.projetoescolar;
 
-/**
- *
- * @author KENNEDYALVESSOARES
- */
 public class Colaborador {
-    public String nome;
+    private String nome;
     private String cpf;
-    public int idade;
+    private int idade;
     private String genero;
-    public String cargo;
+    private String cargo;
     private double salario;
-    
-    public Colaborador(String nome, String cpf, int idade, String genero, 
-                       String cargo, double salario) {
+    private String escalaDeTrabalho;
+
+    public Colaborador(String nome, String cpf, int idade, String genero, String cargo, double salario) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
         this.genero = genero;
         this.cargo = cargo;
-        this.salario = salario;        
-        
+        this.salario = salario;
+        this.escalaDeTrabalho = "";
     }
-    
-    void verificarEscalaDeTrabalho() {
-        // verifica o cargo
-        // define os horarios de acordo com o cargo
-        
+
+    public void verificarEscalaDeTrabalho() {
+        System.out.println("Escala de trabalho de " + nome + ": " + escalaDeTrabalho);
     }
-    void baterPonto(String horario_inicio, String horario_almoco,
-               String horario_fim_almoco, String fim_horario) {
-        
+
+    public void baterPonto() {
+        System.out.println(nome + " bateu o ponto.");
     }
-    
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEscalaDeTrabalho() {
+        return escalaDeTrabalho;
+    }
+
+    public void setEscalaDeTrabalho(String escalaDeTrabalho) {
+        this.escalaDeTrabalho = escalaDeTrabalho;
+    }
 }
